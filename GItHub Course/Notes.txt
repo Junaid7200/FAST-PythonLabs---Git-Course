@@ -1,0 +1,145 @@
+warp terminal
+
+the work flow of git:
+working directory --> git add --> staging area --> git commit --> repo --> git push -->GitHub
+like we write then add then commit and so on
+its like making checkpoints like in a game
+
+we can make a folder called .gitignore and put names of files that we don't want to commit and push onto the repo in .gitignore so they are ignored
+use git ignore generator to see what to ignore in which eco system
+
+
+git init is only executed once for one folder 
+
+use gitlens extension in vs code
+
+git add . will add everything in the file
+write the name of the file after add for specificity
+
+adding the file will stage that file, you can unstage it if you want
+
+for git commit, you always need a msg
+so,
+git commit -m "write message here"
+like that, you must write the message too
+
+
+we can use git log to see the log
+use git log --oneline for summarization
+
+write the commit msg as a command, commanding the code base basically
+
+we should set our name and email in git too:
+
+git config --global user.name "write name here"
+
+git config --global user.email "write email here"
+
+and you can change the code editor too, change it to vs code
+
+git config --global core.editor "code --wait"
+
+you have a git config file in the users folder in C drive btw, thats where git stores the username, email etc
+
+
+remember, every commit is dependent on the previous commit. it is just like a stack, the new commit becomes the parent of the previous commit. so the head has a pointer pointing towards the previous commit. thats how we traverse the git commits and that creates a checkpoint system
+you can see all of this in the hidden .git folder
+
+
+initially we have the master branch, we cna then create more branches and merge them etc
+
+to create a new branch:
+git branch "name of branch"
+
+use checkout to change branches:
+git checkout branchname
+
+branches are like alternative time lines basically
+
+git switch and checkout are the same basically
+
+git checkout -b "branchname" to create and switch to new branch
+
+fast forward merge is when we merge to branches where only one branch is being updated while the other is not, this will lead to simple merging and avoid conflicts for the most part
+there is also not fast forward merging where both branches are being updated at the same time and changes are being made to both of them
+
+bring other branches into master so merge into master, don't merge master into other branches, i mean, you could but its not recommended
+
+git merge nameofbranchyouwannamerge
+and you need to give a merge message too
+
+we can delete the branch too once we merge it:
+git branch -d branchname
+
+when their are conflicts in the two branches, you will need to manually edit the code to remove conflicts and then merge the branches
+
+
+after stageing, you can use git diff
+git diff --staged
+use the above command to see the changes to the file in the staging area
+
+you can write the following to compare files
+git diff filecode1 filecode2
+
+you can use git log to get these file codes
+
+
+
+if you are in a branch and you have made changes but you have not committed them then git won't let you change your branch, but lets say the changes aren't complete and you dont want to commit just yet. this is where you can use git stash
+git stash
+this will put the chnages made in a 'stash' and then you can change the branch
+you can use
+git stash pop to pop the stash and get the code and start working again and commit
+
+you can even stash pop onto a diff branch btw.
+
+use git stash list to see the stashes in the code base
+use:
+git stash apply stash{number here which you will get from git stash list} to get that specific stash
+
+
+you can also traverse your history:
+
+git checkout branchcode
+use git log to get the branch code
+
+in order to go back after going back into the history
+
+git checkout master
+
+you can also use
+git refllog
+reflog moves you back to the previous head
+
+
+git rebase will merge the timelines and remove everything else, be careful with it. use rebase always in other branches, never run rebase in main branch
+
+
+set up ssh and GitHub, generate an ssh and yeah, do that stuff
+
+git branch -M name to change the name of the branch
+
+use git remote -v to see if you got remote repo setup or not
+git remote add name url
+name would be origin by default
+
+git push origin main to push the code onto the GitHub repo
+
+you can setup an upstream as well to push quickly
+
+git push -u origin main
+and after you setup the upstream:
+git push
+and it will be pushed onto the repo
+
+
+we can clone online repos as well
+git clone repoLink
+
+
+work --> stage --> local repo --> online repo
+we can fetch/pull from the online repo and then push
+you can find pull and fetch stuff from vs  code as well btw
+
+
+fetch puts it in the online repo. pull will move it directly to the work area

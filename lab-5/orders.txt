@@ -1,0 +1,7 @@
+1,jonathan,ice cream,5
+2,hadeed,candy,20
+3,fahad,burger,2
+4,jimbo,apples,9
+5,ronald,pizza,2
+6,donald,chips,15
+7,jackson,oranges,6
